@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CrystalBall from './components/CrystalBall';
+import solitaire from './applications/games/solitaire/solitaire';
+class App extends React.Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+  componentDidMount () {
+    let s = solitaire;
+    s.init();
+  }
+  render () {
+      return (
+      <div className="App">
+      <header>
+        <h1>Crystal Ball Test</h1>
       </header>
-    </div>
-  );
+        <main>
+          <CrystalBall />
+        </main>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
