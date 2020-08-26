@@ -2,10 +2,14 @@ import * as PIXI from 'pixi.js';
 export default {
     init: function() {
         const app = new PIXI.Application({
-            width: 800, height: 600, backgroundColor: 0x110b3f, resolution: window.devicePixelRatio || 1,
+            backgroundColor: 0x110b3f, resolution: window.devicePixelRatio || 1,
         });
-        app.width  = window.innerWidth;
-        app.height = window.innerHeight;
+        // app.width = 600;
+        console.log(app.width, window.innerWidth)
+        // const vpw = window.innerWidth;  // Width of the viewport
+        // const vph = window.innerHeight; // Height of the viewport
+        // app.renderer.resize(vph, vpw);
+
         document.body.appendChild(app.view);
         
         const container = new PIXI.Container();
