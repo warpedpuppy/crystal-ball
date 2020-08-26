@@ -4,12 +4,13 @@ export default {
         const app = new PIXI.Application({
             width: 800, height: 600, backgroundColor: 0x110b3f, resolution: window.devicePixelRatio || 1,
         });
+        app.width  = window.innerWidth;
+        app.height = window.innerHeight;
         document.body.appendChild(app.view);
         
         const container = new PIXI.Container();
         app.stage.addChild(container);
         
-
         const cloudTexture = PIXI.Texture.from('/bmps/clouds.png');
         const clouds = new PIXI.Sprite(cloudTexture);
         clouds.alpha = 0.5;
