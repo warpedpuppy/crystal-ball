@@ -8,7 +8,6 @@ export default {
             resolution: window.devicePixelRatio || 1,
         });
        
-       // document.getElementById("canvas-div").appendChild(app.view);
         document.body.appendChild(app.view);
         const container = new PIXI.Container();
         app.stage.addChild(container);
