@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 export default {
     init: function() {
         const app = new PIXI.Application({
-            width: 800, height: 600, backgroundColor: 0x1099bb, resolution: window.devicePixelRatio || 1,
+            width: 800, height: 600, backgroundColor: 0x110b3f, resolution: window.devicePixelRatio || 1,
         });
         document.body.appendChild(app.view);
         
@@ -12,7 +12,7 @@ export default {
         
         // Create a new texture
 
-        const cloudTexture = PIXI.Texture.from('/bmps/clouds-19.jpg');
+        const cloudTexture = PIXI.Texture.from('/bmps/clouds.png');
 
         const clouds = new PIXI.Sprite(cloudTexture);
         clouds.alpha = 0.5;
@@ -24,22 +24,28 @@ export default {
         const circleTexture = PIXI.Texture.from('/bmps/circle.png');
         
         const circle = new PIXI.Sprite(circleTexture);
-        circle.scale.set(0.5)
+        //circle.scale.set(0.5)
         circle.anchor.set(0.5);
         container.addChild(circle);
 
-        const outlineTexture = PIXI.Texture.from('/bmps/outline.png');
+        const coverTexture = PIXI.Texture.from('/bmps/cover.png');
 
-        const outline = new PIXI.Sprite(outlineTexture);
-        outline.anchor.set(0.5);
-        outline.scale.set(0.5)
+        const cover = new PIXI.Sprite(coverTexture);
+        cover.anchor.set(0.5);
+        cover.x -= 1;
 
-        container.addChild(outline);
+        container.addChild(cover);
 
         clouds.mask = circle;
         // Create a 5x5 grid of bunnies
+
+        const basicText = new PIXI.Text('one-on-one\nmentoring');
+        basicText.anchor.set(0.5);
+        container.addChild(basicText);
        
-        
+        console.log(basicText.width)
+
+        basicText.mask = circle;
         // Move container to the center
         container.x = app.screen.width / 2;
         container.y = app.screen.height / 2;
@@ -47,13 +53,20 @@ export default {
         // Center bunny sprite in local container coordinates
         container.pivot.x = container.width / 2;
         container.pivot.y = container.height / 2;
+
+        const blurFilter1 = new PIXI.filters.BlurFilter();
+        let count = 0;
+        basicText.filters = [blurFilter1];
         
         // Listen for animate update
         app.ticker.add((delta) => {
+            count += 0.005;
+            const blurAmount = Math.cos(count);
+            blurFilter1.blur = 20 * (blurAmount);
             // rotate the container!
             // use delta to create frame-independent transform
             //container.rotation -= 0.01 * delta;
-            let newScale = this.cosWave(0.5, 0.25, 0.0005);
+            let newScale = this.cosWave(1, 0.25, 0.0005);
             clouds.scale.set(Math.abs(newScale))
             clouds.rotation -= 0.001 * newScale;
         });
