@@ -2,15 +2,18 @@ import * as PIXI from 'pixi.js';
 export default {
     init: function() {
         const app = new PIXI.Application({
-            backgroundColor: 0x110b3f, resolution: window.devicePixelRatio || 1,
+            width: 800,
+            height: 600,
+            backgroundColor: 0x110b3f, 
+            resolution: window.devicePixelRatio || 1,
         });
         // app.width = 600;
         console.log(app.width, window.innerWidth)
         // const vpw = window.innerWidth;  // Width of the viewport
         // const vph = window.innerHeight; // Height of the viewport
         // app.renderer.resize(vph, vpw);
-
-        document.body.appendChild(app.view);
+        // app.resizeTo = window;
+        document.getElementById("canvas-div").appendChild(app.view);
         
         const container = new PIXI.Container();
         app.stage.addChild(container);
@@ -63,6 +66,7 @@ export default {
             clouds.scale.set(Math.abs(newScale))
             clouds.rotation -= 0.001 * newScale;
         });
+        
         
     },
     cosWave: function (startPoint, differential, speed) {

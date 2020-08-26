@@ -1,6 +1,13 @@
-canvas {
-    width: 800px; 
+#canvas-div {
+    width: 800px;
     height: 600px;
+    margin: 0 auto;
+}
+
+canvas {
+    width: 100%; 
+    height: 100%;
     display: block;
     margin: 0 auto;
+    background-color: #110b3f;
 }
