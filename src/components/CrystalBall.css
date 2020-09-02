@@ -12,6 +12,12 @@
     background-color: #181145;
     text-align: center;
 }
+#crystal-ball-unifier img{
+    display:block;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 475px;
+}
 canvas {
     width: 100%; 
     height: 100%;
@@ -19,5 +25,4 @@ canvas {
     max-height: 699px;
     display: block;
     margin: 0 auto;
-    
 }
