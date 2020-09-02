@@ -7,8 +7,8 @@ export default {
         const app = new PIXI.Application({
             width: 600,
             height: 600,
-            backgroundColor: 0x110b3f, 
             resolution: window.devicePixelRatio || 1,
+            transparent: true
         });
        
         const blurFilter = new PIXI.filters.BlurFilter();
@@ -43,7 +43,7 @@ export default {
         cover.anchor.set(0.5);
         cover.x -= 1;
         container.addChild(cover);
-
+        cover.mask = circle;
         clouds.mask = circle;
 
         let graphicTexture1 = PIXI.Texture.from(`/bmps/graphic_1.png`);
