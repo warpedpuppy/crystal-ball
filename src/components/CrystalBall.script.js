@@ -5,7 +5,7 @@ export default {
 
         
         const app = new PIXI.Application({
-            width: 800,
+            width: 600,
             height: 600,
             backgroundColor: 0x110b3f, 
             resolution: window.devicePixelRatio || 1,
@@ -22,7 +22,7 @@ export default {
             pause = false,
             fadeOut = true;
              
-        document.body.appendChild(app.view);
+        document.getElementById("canvas-div").appendChild(app.view);
         const container = new PIXI.Container();
         app.stage.addChild(container);
         
