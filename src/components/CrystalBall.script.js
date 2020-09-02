@@ -5,8 +5,8 @@ export default {
 
         
         const app = new PIXI.Application({
-            width: 600,
-            height: 600,
+            width: 750,
+            height: 699,
             resolution: window.devicePixelRatio || 1,
             transparent: true
         });
@@ -43,7 +43,6 @@ export default {
         cover.anchor.set(0.5);
         cover.x -= 1;
         container.addChild(cover);
-        cover.mask = circle;
         clouds.mask = circle;
 
         let graphicTexture1 = PIXI.Texture.from(`/bmps/graphic_1.png`);
