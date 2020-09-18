@@ -12,6 +12,7 @@ export default class componentName extends Component {
       <div id="crystal-ball-unifier">
         <div id="canvas-div"></div>
         <img alt="lower-half-of-promo" src='/bmps/bottom-graphic.png' />
+        <div id="scroll-cover"></div>
       </div>
     );
   }

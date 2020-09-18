@@ -21,6 +21,7 @@ export default {
             fadeIn = true,
             pause = false,
             fadeOut = true;
+
              
         document.getElementById("canvas-div").appendChild(app.view);
         const container = new PIXI.Container();
