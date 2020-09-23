@@ -44,18 +44,21 @@ export default {
         container.addChild(circle);
 
         const videoTexture = PIXI.Texture.from('https://walthermidcoast.s3.amazonaws.com/Annabelle+Gurwitch-Circle3.mp4');
+        videoTexture.muted = true;
         const videoSprite = new PIXI.Sprite( videoTexture );
         videoSprite.anchor.set(0.5);
+
         videoSprite.width = videoSprite.height = 700;
 
         /**@type {HTMLVideoElement}*/
     
         const videoControler = videoSprite.texture.baseTexture.resource.source;
         videoControler.loop = true;
-       // container.addChild(videoSprite);
+        videoControler.autoplay = true;
+        videoControler.muted = true;
+        videoControler.play();
+
         videoSprite.mask = circle;
-
-
 
        
 
@@ -64,7 +67,7 @@ export default {
         let graphicTexture3 = PIXI.Texture.from(`/bmps/v2/graphic_3.png`);
         let graphicTexture4 = videoTexture;
         graphicTexture4.mask = circle;
-
+//
         let textures = [graphicTexture1, graphicTexture2, graphicTexture3, graphicTexture4];
         let textureCounter = 0;
 
